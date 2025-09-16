@@ -1,16 +1,16 @@
-from aula3.app import db
+from app import db
 
 class Usuario(db.Model):
     __tablename__ = 'usuarios'
-
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-
+    data_de_nascimento = db.Column(db.Date, nullable=True)  # Nova coluna
 
     def __repr__(self):
         return f'<Usuario {self.nome}>'
-    
+
+
 class Receita(db.Model):
     __tablename__ = 'receitas'
     id = db.Column(db.Integer, primary_key=True)
